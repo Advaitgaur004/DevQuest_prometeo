@@ -1,8 +1,10 @@
 body {
-	/* background: var(--bg);
-	color: var(--fg);
-	font: 1em/1.5 sans-serif; */
-	height: 100vh;
-	display: grid;
-	place-items: center;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+	margin: 0;
 }
+body::-webkit-scrollbar{
+    display: none;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

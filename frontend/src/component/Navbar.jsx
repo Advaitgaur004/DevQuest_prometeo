@@ -1,24 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import '../Style/navbar.css';
-// const [activeLink, setActiveLink] = useState(
+import { useState } from "react";
+import "../Style/navbar.css";
+import { Link } from "react-router-dom";
+import linksData from "./data";
+import logo from "../image/logo (1).png";
 
-// );
-
-const Navbar = () => {
-  // useEffect(() => {
-  //   setActiveLink(window.location.pathname);
-  // }, []);
-  // const handleClick = (event) => {
-  //   setActiveLink(event.target.pathname);
-  // };
+function Navbar() {
   return (
-   <div className='navbar'>
-      <Link to='/'>Home</Link>
-      <Link to='/search'>Search</Link>
+    <>
+      <div className="header">
+        <div className="logo bounce_img">
+          <Link to='/'>
 
-   </div>
-  )
+          <img  src={logo} alt="Logo" />
+          </Link>
+        </div>
+        <div className="glass bounce">
+          <div className="app_link">
+            {linksData.map((link, index) => (
+              <Link
+                key={index}
+                to={link.url}
+                className="neon"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default Navbar
+export default Navbar;

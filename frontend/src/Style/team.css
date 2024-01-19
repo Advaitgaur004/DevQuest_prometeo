@@ -1,0 +1,16 @@
+.teampage{
+    height: 89vh;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+
+}
+.aboutpageheading{
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+}
+.about_image_and_text{
+   margin: 20px;
+   padding: 50px;
+   color: aliceblue;
+   columns: 50px 2;
+}
