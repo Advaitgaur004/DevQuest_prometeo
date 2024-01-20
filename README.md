@@ -20,13 +20,9 @@ To assist users in making informed decisions over time, the application provides
 
 DevQuest - Prometeo '24 includes a notification system designed to keep users informed about price changes. Users can set desired price thresholds, and the application will send notifications when prices drop below the specified value or reach the user's desired amount. This proactive approach empowers users to take advantage of price reductions and make timely purchases.
 
-### 4. Bonus Features
-
-Participants are encouraged to add innovative features that enhance the overall user experience. These can include personalized product recommendations, social sharing capabilities, or any creative functionality that adds value to the application.
-
 ## Architecture and Implementation Details
 
-The project architecture consists of a backend built using Django, a high-level Python web framework. The backend interacts with E-Commerce APIs (Amazon, Flipkart, Walmart) to fetch real-time product information. Key backend files include `settings.py`, `models.py`, `serializer.py`, `urls.py`, and `views.py`.
+The project architecture consists of a backend built using Django, a high-level Python web framework. The backend interacts with E-Commerce APIs (Amazon, Flipkart, Walmart) to fetch real-time product information.
 
 ## Demo
 
@@ -44,17 +40,26 @@ The project architecture consists of a backend built using Django, a high-level 
 
 Contributing
 Fork the project.
-Create a new branch (git checkout -b feature).
-Commit your changes (git commit -am 'Add feature').
-Push to the branch (git push origin feature).
+Create a new branch 
+   ```bash
+   $ git checkout -b feature
+   ```
+Commit your changes
+   ```bash
+   $ git commit -am 'Add feature'
+   ```
+Push to the branch 
+   ```bash
+   $ git push origin feature
+   ```
+
 Create a new Pull Request.
 
-License
+## License
 This project is licensed under the [Your License] - see the LICENSE file for details.
 
-Acknowledgments
+## Acknowledgments
 Give credit to the tools, libraries, and people who inspired or helped you in building your project.
-
 Feel free to adapt and customize this template further based on your project's specific needs and preferences.
 
 
