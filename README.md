@@ -1,6 +1,6 @@
 # DevQuest - Prometeo '24
 
-[![DevQuest Logo](link_to_logo.png)](link_to_project)
+[![DevQuest Logo](https://www.knowafest.com/files/uploads/prometeo%20logo-2022122201.jpg)]
 
 ## Problem Statement
 
@@ -24,10 +24,6 @@ DevQuest - Prometeo '24 includes a notification system designed to keep users in
 
 The project architecture consists of a backend built using Django, a high-level Python web framework. The backend interacts with E-Commerce APIs (Amazon, Flipkart, Walmart) to fetch real-time product information.
 
-## Demo
-
-[![Working Website](link_to_working_website_screenshot.png)](link_to_working_website)
-[![Demo Video/GIF](link_to_demo_video.gif)](link_to_demo_video)
 
 ## Installation
 
