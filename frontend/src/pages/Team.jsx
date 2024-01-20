@@ -3,6 +3,8 @@ import aboutuspage from "../image/Aboutuspage.gif";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import '../Style/team.css'
+import Profile from "../component/Profile";
+import ashu from '../image/ashu.jpg'
 
 export default function Team() {
   useEffect(() => {
@@ -20,14 +22,19 @@ export default function Team() {
         </span>{" "}
         
       </h1>
-      <div className="about_image_and_text">
+      <div className="profiles">
+        <div className="prof">
+          <Profile image={ashu} fullname="Ashutosh"  creativity='frontend and backend devloper' />
+          <Profile image={ashu} fullname="Ashutosh"  creativity='frontend and backend devloper' />
+
+        </div>
+        <div className="prof">
+          <Profile image={ashu} fullname="Ashutosh"  creativity='frontend and backend devloper' />
+
+          <Profile image={ashu} fullname="Ashutosh"  creativity='frontend and backend devloper' />
+        </div>
         
-        <div data-aos="fade-right">
-          {/* <img src={aboutuspage} alt="" /> */}
-        </div>
-        <div data-aos=" flip-right">
-         
-        </div>
+       
       </div>
     </div>
   );

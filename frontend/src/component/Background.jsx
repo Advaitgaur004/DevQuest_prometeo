@@ -4,16 +4,21 @@ import * as THREE from "three";
 import Typewriter from 'typewriter-effect';
 import "../Style/background.css";
 const Background = () => {
+  
+    const downloadFile = () => {
+      window.location.href = "https://yoursite.com/src/assets/files/exampleDoc.pdf"
+    }
   return (
     <div className="background">
       <div className="text_back">
         <Typewriter
   options={{
-    strings: ['Hello', 'World'],
+    strings: ['Welcome', 'To', "Apna mart"],
     autoStart: true,
     loop: true,
   }}
 />
+<button class="btn" target="_blank" onClick={downloadFile} >User flow</button>
 </div>
       <div class="container">
         <div class="trigger"></div>
