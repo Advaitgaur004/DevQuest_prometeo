@@ -4,12 +4,11 @@ import MinLoader from "./MinLoader";
 import Card from "../component/Card";
 import image from "../image/logo (1).png";
 import axios from "axios";
-const Searchreasult = ({ texts }) => {
+const Searchreasult = ({ texts, dataes }) => {
   const [load, setload] = useState(true);
   setTimeout(() => {
     setload(false);
   }, 2000);
-
   const [data, setData] = useState([]);
   const [price, setPrice] = useState(true);
   const [rating, setrating] = useState(true);
@@ -21,37 +20,39 @@ const Searchreasult = ({ texts }) => {
   const handlerating = (e) => {
     setrating(e.target.checked);
   };
-  const Arrayamazone = JSON.parse(data[0].amazon.replace(/'/g, '"'));
+  // const Arrayamazone = JSON.parse(dataes[-1].amazon.replace(/'/g, '"'));
+  // const Arrayflipcard = JSON.parse(data[-1].flipcard.replace(/'/g, '"'));
+  // const Arraywalmart = JSON.parse(data[-1].walmart.replace(/'/g, '"'));
+  console.log(dataes);
+
   // console.log(yourArray);
-  // const Arrayamazone= [
-  //   {
-  //     price : 'a500',
-  //     rating: 'a3'
-  //   },
-  //   {
-  //     price : 'a200',
-  //     rating: 'a2'
-  //   }
-  // ]
+  const Arrayamazone = [
+    {
+      price: "a500",
+      rating: "a3",
+    },
+    {
+      price: "a200",
+      rating: "a2",
+    },
+  ];
   const filteredItems = price
     ? Arrayamazone.sort((a, b) => a.price.slice(1) - b.price.slice(1))
     : Arrayamazone;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `http://127.0.0.1:8000/ProductFinder/`
-        );
-        setData(response.data);
-        // console.log(data[0].search)
-      } catch (error) {
-        console.error("Error fetching data:thux", error);
-      }
-    };
+  // useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`http://127.0.0.1:8000/ProductFinder/`);
+      setData(response.data);
+      // console.log(data[0].search)
+    } catch (error) {
+      console.error("Error fetching data:thux", error);
+    }
+  };
 
-    fetchData();
-  }, []);
+  fetchData();
+  // }, []);
 
   return (
     <>
@@ -64,11 +65,19 @@ const Searchreasult = ({ texts }) => {
              
             {data[0].search}
             </div>  */}
-            <div>
-              price{" "}
-              <input type="checkbox" name={price} onChange={handleprice} />
-              rating{" "}
-              <input type="checkbox" name={rating} onChange={handlerating} />
+            <div className="filter">
+              <h1>Filtering</h1>
+            </div>
+            <div className="checkbox">
+              <label class="cyberpunk-checkbox-label">
+                <input
+                  type="checkbox"
+                  class="cyberpunk-checkbox"
+                  name={price}
+                  onChange={handleprice}
+                />
+                Price(increseing oder)
+              </label>
             </div>
             <div className="head_card">
               <h1>Amazone</h1>
@@ -80,7 +89,8 @@ const Searchreasult = ({ texts }) => {
                     // name={data.title}
                     rating={data.rating}
                     price={data.price}
-                    // link={data.url}
+                    link={data.url}
+                    target="_blank"
                     // website="flipcard"
                   />
                 ))}

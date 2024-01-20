@@ -4,17 +4,67 @@ import Typewriter from "typewriter-effect";
 import Alert from "react-bootstrap/Alert";
 import Searchreasult from "./Searchreasult";
 import { Link } from "react-router-dom";
-
-const Search = ({onhandle,settexts,setminloader}) => {
+import axios from 'axios';
+const Search = ({onhandle,settexts,setminloader,setdataes}) => {
   const [text, settext] = useState("");
   const [alert, setalert] = useState(false);
+  const datas = {input : ''}
+  const [inputdata,setinputdata] = useState(datas);
+  
   const handleonchange = (e) => {
     settext(e.target.value);
     settexts(e.target.value)
     setalert(false);
+    setinputdata(e.target.value);
+    // console.log(inputdata);
     // console.log(text);
   };
-  const handleonclick = () => {
+ 
+  const handleonclick = (e) => {
+    //  e.preventDefault();
+    //  axios.post("http://127.0.0.1:8000/ProductFinder/",inputdata)
+    //  .then((response)=>{
+    //   console.log(response);
+    //  })
+    const fetchData = async () => {
+    console.log(inputdata);
+    console.log('ashutosh1')
+
+      try {
+    console.log('ashutosh2')
+
+        const response = await axios.post(
+          'http://127.0.0.1:8000/ProductCreator/',
+          {
+            search : inputdata
+          }
+        );
+    console.log('ashutosh3')
+
+        setinputdata(response.data);
+        setdataes(response.data)
+        // console.log('Data:', response.data);
+        }catch (error) {
+          console.error('Error fetching data:', error);
+          if (error.response) {
+            // The request was made, but the server responded with a status code
+            // that falls out of the range of 2xx
+            console.error('Response data:', error.response.inputdata);
+            console.error('Response status:', error.response.status);
+            console.error('Response headers:', error.response.headers);
+          } else if (error.request) {
+            // The request was made, but no response was received
+            console.error('No response received:', error.request);
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.error('Error setting up the request:', error.message);
+          }
+        }
+    };
+
+    fetchData();
+    
+
     if (text == 0) {
       setalert(true);
     } else {
@@ -26,6 +76,7 @@ const Search = ({onhandle,settexts,setminloader}) => {
     onhandle();
   }, [text]);
   
+    
   const urlreasult = !text ? '#' : "/searchreasult"
   return (
     <div className="searchpage">
@@ -45,6 +96,7 @@ const Search = ({onhandle,settexts,setminloader}) => {
           class="search-input"
           onChange={handleonchange}
           value={text}
+          name= 'search'
         />
         <Link to={urlreasult} class="search-btn" onClick={handleonclick}>
           <svg
@@ -69,6 +121,7 @@ const Search = ({onhandle,settexts,setminloader}) => {
         null
         }
       </div>
+      
     </div>
   );
 };

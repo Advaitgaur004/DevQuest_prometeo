@@ -18,7 +18,7 @@ class ProductCreateViewSet(viewsets.ModelViewSet, generics.CreateAPIView):
     serializer_class = ProductFinderSerializer
 
     def list(self, request, *args, **kwargs):
-        return Response([])
+        return super().list(request, *args, **kwargs)
 
     def create(self, request, *args, **kwargs):
         search_term = request.data.get('search', '')
