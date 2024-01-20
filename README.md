@@ -56,7 +56,7 @@ Push to the branch
 Create a new Pull Request.
 
 ## License
-This project is licensed under the [Your License] - see the LICENSE file for details.
+The project is licensed under the MIT License - see the [LICENSE](https://github.com/Advaitgaur004/DevQuest_prometeo/LICENSE) file for details.
 
 ## Acknowledgments
 Give credit to the tools, libraries, and people who inspired or helped you in building your project.
